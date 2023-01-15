@@ -15,64 +15,16 @@
 
     .Content {
         width: 100%;
-        max-width: 900px;
+        max-width: 600px;
 
         .Section_1 {
             position: relative;
-            padding: 3rem;
+            padding: 1rem;
             background-color: var(--white);
             border-radius: var(--radius_10);
             box-shadow: 0 0 0.5rem var(--shadow_16);
             margin-bottom: 1.5rem;
-
-            .Top {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                min-height: 6rem;
-                margin-bottom: 5rem;
-
-                .LogoContainer {
-                    position: relative;
-                    width: 200px;
-                    height: 50px;
-
-                    @media only screen and (max-width: 570px) {
-                        width: 150px;
-                        height: 37.5px;
-                    }
-
-                    .Logo {
-                        font-size: 2.5rem;
-                        font-weight: 400;
-                        font-family: var(--Motserrat);
-
-                        color: var(--orange_1);
-                        span {
-                            color: var(--green_1);
-                        }
-                    }
-                }
-
-                .LogOut {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 1rem;
-                    padding: 1rem 2.5rem;
-                    background-color: var(--white);
-                    color: var(--red_1);
-                    border: 0;
-                    border-radius: 20px;
-                    box-shadow: 0 0 0.4rem var(--shadow_16);
-                    transition: transform 0.15s ease-in-out;
-                    cursor: pointer;
-
-                    &:active {
-                        box-shadow: inset 0 0 0.4rem var(--shadow_16);
-                    }
-                }
-            }
+            max-height: 400px;
 
             .Bottom {
                 position: absolute;
@@ -107,8 +59,8 @@
 
                 @media only screen and (max-width: 767px) {
                     button {
-                        width: 6rem;
-                        height: 6rem;
+                        width: 7rem;
+                        height: 7rem;
                     }
                 }
             }
@@ -118,20 +70,18 @@
             display: flex;
             justify-content: flex-start;
             flex-wrap: wrap;
-            gap: 1.5rem;
-            padding: 3rem;
+            padding: 5rem 1rem 3rem 1rem;
             background-color: var(--white);
             border-radius: var(--radius_10);
             box-shadow: 0 0 0.5rem var(--shadow_16);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
 
             .Admin_Item {
-                width: calc(50% - 0.75rem);
+                width: 100%;
                 margin-bottom: 1.5rem;
-
-                @media only screen and (max-width: 850px) {
-                    width: calc(50% - 0.75rem);
-                }
+                background-color: #eeeeee75;
+                padding: 1.3rem;
+                border-radius: var(--radius_10);
 
                 h2 {
                     font-size: 1.8rem;
@@ -143,6 +93,18 @@
                 p {
                     font-size: 1.6rem;
                     color: var(--gray_dark_3);
+                }
+            }
+
+            & > .Rtl {
+                direction: rtl;
+                text-align: right;
+                font-family: var(--Almarai);
+                background-color: #e9ab8724;
+                padding: 1.3rem;
+
+                p{
+                    line-height: 1.2rem;
                 }
             }
         }

@@ -21,21 +21,8 @@ function Product() {
     const dispatch = useDispatch();
     const { code: ReduxCode } = useSelector((state) => state.layout);
 
-    // Authentication Check
-    useEffect(() => {
-        // redirect if the authenticated is false
-        const authenticated = document.cookie.split("=");
-        if (!authenticated || authenticated[1] !== "true") {
-            // redirect if Authentication is not true
-            router.replace("/login");
-        }
-    }, [router]);
-
     // State
     const [data, setData] = useState();
-
-    // Refs
-    const quantityRef = useRef();
 
     // Get the item Data Function from the server with it's code
     async function getTheData(searchCode) {
@@ -72,10 +59,10 @@ function Product() {
                     message.includes("This code has no data")
                 ) {
                     // redirect to the create page
-                    router.push("/scan");
+                    router.push("/");
                 } else {
                     // if any another error redirect to scan page
-                    router.push("/scan");
+                    router.push("/");
                 }
             });
     }
@@ -93,75 +80,6 @@ function Product() {
             getTheData(queryCode);
         }
     }, [router, ReduxCode]);
-    // LogoutHandler
-    const logoutHandler = () => {
-        // clear the scan input
-        dispatch(clearTheInput());
-        // change the authenticated state at cookies
-        document.cookie = `authenticated=false;`;
-        // remove username from localStorage
-        localStorage.removeItem("username");
-        // redirect to login
-        router.replace("/login");
-    };
-
-    // Update The Data
-    const UpdateHandler = (e, Asset_Number) => {
-        // Prevent Default the Action
-        e.preventDefault();
-        // get the value from inputs and store in constants
-        const quantityValue = quantityRef.current.value;
-        // get the username from the localstorage
-        const username = localStorage.getItem("username");
-        // Signout if no username and erdirect to login
-        if (!username) {
-            logoutHandler();
-            toast.error("Username is not Saved 😢 please login again");
-            return;
-        }
-        // check ig no code return to scan page
-        if (!Asset_Number) {
-            router.push("/scan");
-            toast.error("The item code is invalid or un exist");
-            return;
-        }
-        // check if the quantity is invalid
-        if (
-            isNaN(quantityValue) ||
-            quantityValue === "" ||
-            quantityValue === null
-        ) {
-            toast.error("The Entered Quantity is invalid");
-            return;
-        }
-        // Send the update request to the server
-        axios
-            .post(`${process.env.NEXT_PUBLIC_CREATE_RECORD_ENDPOINT}`, {
-                itemBarcode: Asset_Number,
-                quantity: quantityValue,
-                username: username,
-            })
-            .then((res) => {
-                // Show a notification
-                if (res.data.success && res.data.message) {
-                    toast.success(`${res.data.message} ✨`);
-                }
-
-                // clear quentity
-                quantityValue = ''
-                // Return res data
-                return res.data;
-            })
-            .catch((err) => {
-                if (err.response?.data?.message) {
-                    // show an error message
-                    toast.error(`${err.response.data.message} 😢`);
-                } else {
-                    // show an error message
-                    toast.error(`${err.message} 😢`);
-                }
-            });
-    };
 
     return (
         <>
@@ -175,42 +93,20 @@ function Product() {
             <div className={classes.Product}>
                 <div className={classes.Content}>
                     <section className={classes.Section_1}>
-                        <div className={classes.Top}>
-                            <div className={classes.LogoContainer}>
-                                <div className={classes.Logo}>
-                                    Goo<span>Admin</span>
-                                </div>
-                            </div>
-                            <button
-                                className={classes.LogOut}
-                                onClick={logoutHandler}
-                            >
-                                <Image
-                                    src={"/Icons/Logout.svg"}
-                                    width={18}
-                                    height={18}
-                                    alt={"Logout Icon"}
-                                />
-                                Logout
-                            </button>
-                        </div>
+                        <Image
+                            src={"/test.jpg"}
+                            width={600}
+                            height={400}
+                            layout='responsive'
+                            objectFit='cover'
+                            quality={100}
+                            alt='Home'
+                        />
                         <div className={classes.Bottom}>
-                            <button
-                                className={classes.Create}
-                                onClick={() => router.push("/")}
-                            >
-                                <Image
-                                    src={"/Icons/Home.svg"}
-                                    width={30}
-                                    height={30}
-                                    alt={"Create Icon"}
-                                />
-                            </button>
                             <button
                                 className={classes.Scan}
                                 onClick={() => {
-                                    dispatch(clearTheInput());
-                                    router.push("/scan");
+                                    router.push("/");
                                 }}
                             >
                                 <Image
@@ -223,52 +119,45 @@ function Product() {
                         </div>
                     </section>
                     <section className={classes.Section_2}>
-                        <article className={classes.Admin_Item}>
-                            <h2>Asset Name</h2>
+                        <article
+                            className={[classes.Admin_Item, classes.Rtl].join(
+                                " "
+                            )}
+                        >
+                            <h2>اسم المنتج</h2>
                             <p>{data && data[0]}</p>
                         </article>
                         <article className={classes.Admin_Item}>
-                            <h2>Asset Price</h2>
+                            <h2>Product Name</h2>
+                            <p>The Name of the product in English</p>
+                        </article>
+                        <article
+                            className={[classes.Admin_Item, classes.Rtl].join(
+                                " "
+                            )}
+                        >
+                            <h2>الوصف</h2>
+                            <p>{data && data[0]}</p>
+                        </article>
+                        <article className={classes.Admin_Item}>
+                            <h2>Description</h2>
+                            <p>
+                                This is a description about the product above
+                                you can know all what you need 
+                            </p>
+                        </article>
+                        <article
+                            className={[classes.Admin_Item, classes.Rtl].join(
+                                " "
+                            )}
+                        >
+                            <h2>السعر</h2>
                             <p>{data && data[1]}</p>
                         </article>
-                    </section>
-                    <section className={classes.Section_3}>
-                        <form
-                            style={{ width: "100%" }}
-                            onSubmit={(e) => {
-                                // Code from url query
-                                const { itemBarcode: queryCode } = router.query;
-                                UpdateHandler(e, ReduxCode || queryCode);
-                                // clear the input
-                                dispatch(clearTheInput());
-                                // redirect to scan
-                                router.push("/scan");
-                            }}
-                        >
-                            <article className={classes.User_Item}>
-                                <label htmlFor='quantity'>Quantity</label>
-                                <input
-                                    id='quantity'
-                                    type={"number"}
-                                    placeholder={"Enter Quantity"}
-                                    ref={quantityRef}
-                                    required={"on"}
-                                    min={'0'}
-                                />
-                            </article>
-                            <div className={classes.BTN_Container}>
-                                <ScanButton
-                                    submit_function={() => {
-                                        dispatch(clearTheInput());
-                                        router.push("/scan");
-                                    }}
-                                />
-                                <SubmitButton
-                                    buttonText={"Update"}
-                                    buttonFunction={() => {}}
-                                />
-                            </div>
-                        </form>
+                        <article className={classes.Admin_Item}>
+                            <h2>Price</h2>
+                            <p>{data && data[1]}</p>
+                        </article>
                     </section>
                 </div>
             </div>
