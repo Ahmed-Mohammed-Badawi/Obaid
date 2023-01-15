@@ -1,15 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import classes from "../components/Pages/product.module.scss";
 // IMPORTS
 import Head from "next/head";
 import Image from "next/image";
-import SubmitButton from "../components/Layout/SubmitButton";
 import axios from "axios";
-import ScanButton from "../components/Layout/ScanButton";
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import { clearTheInput } from "../Redux/Reducers/layoutReducer";
 // Notifications
 import { toast } from "react-toastify";
 
@@ -94,7 +91,7 @@ function Product() {
                 <div className={classes.Content}>
                     <section className={classes.Section_1}>
                         <Image
-                            src={"/test.jpg"}
+                            src={"/test_2.jpg"}
                             width={600}
                             height={400}
                             layout='responsive'
