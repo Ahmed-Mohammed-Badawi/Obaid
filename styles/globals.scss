@@ -1,0 +1,55 @@
+// Import Fonts
+@import "../fonts/fonts.scss";
+@import "../components/Scanner/scannerStyle.scss";
+// Variables
+:root {
+    // Colors
+    --orange_1: #d96e30;
+    --orange_2: #d95a2b;
+    --red_1: #bf3415;
+    --green_1: #3f9552;
+    --gray_light_1: #f2f2f2;
+    --gray_dark_1: #222222;
+    --gray_dark_2: #333333;
+    --gray_dark_3: #555555;
+    --gray_dark_4: #777777;
+    --gray_dark_5: #999999;
+    --black: #000000;
+    --white: #ffffff;
+    // Fonts
+    --Montserrat: "Montserrat", sans-serif;
+    --Roboto: "Roboto", sans-serif;
+    // Shadows
+    --shadow_16: rgba(0, 0, 0, 0.16);
+    --shadow_25: rgba(0, 0, 0, 0.25);
+    --shadow_30: rgba(0, 0, 0, 0.3);
+    // Radius
+    --radius_5: 5px;
+    --radius_10: 10px;
+    --radius_full: 100%;
+    // Endpoints
+    --xs_endpoint: 575px;
+    --sm_endpoint: 767px;
+    --md_endpoint: 991px;
+    --lg_endpoint: 1199px;
+    --xl_endpoint: 1399px;
+}
+
+// Global Style
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    // Make 1 em equal to 10px
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--Roboto);
+    font-size: 1.6rem;
+}

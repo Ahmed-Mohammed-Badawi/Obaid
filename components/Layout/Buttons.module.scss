@@ -1,0 +1,82 @@
+
+// Submit Button Style
+.Submit_BTN {
+    padding: 0.3rem 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 5rem;
+    background-color: var(--white);
+    border-radius: var(--radius_10);
+    border: 0;
+    box-shadow: 0 0 0.4rem var(--shadow_16);
+    cursor: pointer;
+    transition: transform .15s ease-in-out;
+    // Text
+    span {
+        color: var(--orange_1);
+        font-size: 1.7rem;
+        margin-left: 1rem;
+    }
+    
+    &:hover {
+        transform: translateY(-2px);
+    }
+    
+    &:active{
+        transform: translateY(0);
+        box-shadow: inset 0 0 0.6rem var(--shadow_16);
+    }
+
+    @media (max-width: 850px) {
+        width: auto;
+        padding: .3rem 4rem;
+    }
+
+    @media (max-width: 450px) {
+        width: 50%;
+        padding: .3rem 2rem;
+    }
+}
+
+// Scan Button Style
+.Scan_BTN {
+    padding: 0.3rem 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 5rem;
+    background-color: var(--white);
+    border-radius: var(--radius_10);
+    border: 0;
+    box-shadow: 0 0 0.4rem var(--shadow_16);
+    cursor: pointer;
+    transition: transform .15s ease-in-out;
+    // Text
+    span {
+        color: var(--gray_dark_4);
+        font-size: 1.6rem;
+        margin-left: 1rem;
+    }
+    
+    &:hover {
+        transform: translateY(-2px);
+    }
+    
+    &:active{
+        transform: translateY(0);
+        box-shadow: inset 0 0 0.6rem var(--shadow_16);
+    }
+
+    @media (max-width: 850px) {
+        width: auto;
+        padding: .3rem 4rem;
+    }
+
+    @media (max-width: 850px) {
+        width: 50%;
+        padding: .3rem 2rem;
+    }
+}

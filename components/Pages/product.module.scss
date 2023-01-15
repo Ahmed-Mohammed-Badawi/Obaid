@@ -1,0 +1,211 @@
+.Product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 3rem;
+    background-image: url("/Images//Home_BG_Smaller.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    min-height: 100vh;
+
+    @media only screen and (max-width: 767px) {
+        padding: 5rem 1rem;
+    }
+
+    .Content {
+        width: 100%;
+        max-width: 900px;
+
+        .Section_1 {
+            position: relative;
+            padding: 3rem;
+            background-color: var(--white);
+            border-radius: var(--radius_10);
+            box-shadow: 0 0 0.5rem var(--shadow_16);
+            margin-bottom: 1.5rem;
+
+            .Top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                min-height: 6rem;
+                margin-bottom: 5rem;
+
+                .LogoContainer {
+                    position: relative;
+                    width: 200px;
+                    height: 50px;
+
+                    @media only screen and (max-width: 570px) {
+                        width: 150px;
+                        height: 37.5px;
+                    }
+
+                    .Logo {
+                        font-size: 2.5rem;
+                        font-weight: 400;
+                        font-family: var(--Motserrat);
+
+                        color: var(--orange_1);
+                        span {
+                            color: var(--green_1);
+                        }
+                    }
+                }
+
+                .LogOut {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1rem;
+                    padding: 1rem 2.5rem;
+                    background-color: var(--white);
+                    color: var(--red_1);
+                    border: 0;
+                    border-radius: 20px;
+                    box-shadow: 0 0 0.4rem var(--shadow_16);
+                    transition: transform 0.15s ease-in-out;
+                    cursor: pointer;
+
+                    &:active {
+                        box-shadow: inset 0 0 0.4rem var(--shadow_16);
+                    }
+                }
+            }
+
+            .Bottom {
+                position: absolute;
+                bottom: 0;
+                right: 1rem;
+                transform: translateY(50%);
+                display: flex;
+                gap: 1rem;
+
+                button {
+                    width: 8rem;
+                    height: 8rem;
+                    border-radius: 50%;
+                    background-color: var(--white);
+                    border: 0;
+                    box-shadow: 0 0 0.4rem var(--shadow_16);
+                    transition: transform 0.15s ease-in-out;
+                    cursor: pointer;
+
+                    &:hover {
+                        transform: rotate(30deg);
+                    }
+
+                    &:active {
+                        box-shadow: inset 0 0 0.4rem var(--shadow_16);
+                    }
+                }
+
+                .Scan {
+                    background-image: radial-gradient(#d96e30, transparent);
+                }
+
+                @media only screen and (max-width: 767px) {
+                    button {
+                        width: 6rem;
+                        height: 6rem;
+                    }
+                }
+            }
+        }
+
+        .Section_2 {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding: 3rem;
+            background-color: var(--white);
+            border-radius: var(--radius_10);
+            box-shadow: 0 0 0.5rem var(--shadow_16);
+            margin-bottom: 1.5rem;
+
+            .Admin_Item {
+                width: calc(50% - 0.75rem);
+                margin-bottom: 1.5rem;
+
+                @media only screen and (max-width: 850px) {
+                    width: calc(50% - 0.75rem);
+                }
+
+                h2 {
+                    font-size: 1.8rem;
+                    font-weight: 400;
+                    color: var(--orange_1);
+                    margin-bottom: 0.7rem;
+                }
+
+                p {
+                    font-size: 1.6rem;
+                    color: var(--gray_dark_3);
+                }
+            }
+        }
+
+        .Section_3 {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2%;
+            padding: 3rem;
+            background-color: var(--white);
+            border-radius: var(--radius_10);
+            box-shadow: 0 0 0.5rem var(--shadow_16);
+
+            .User_Item {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                margin-bottom: 1.5rem;
+
+                @media only screen and (max-width: 767px) {
+                    width: 100%;
+                }
+
+                label {
+                    margin-left: 0.5rem;
+                    font-size: 1.6rem;
+                    font-weight: 400;
+                    color: var(--orange_1);
+                    margin-bottom: 0.7rem;
+                }
+
+                input {
+                    width: 100%;
+                    padding: 1.4rem 2rem;
+                    border: 0;
+                    font-family: var(--Roboto);
+                    font-size: 1.3rem;
+                    color: var(--gray_dark_1);
+                    caret-color: var(--orange_1);
+                    border-radius: var(--radius_5);
+                    box-shadow: inset 0 0 0.6rem var(--shadow_16);
+
+                    &:focus {
+                        outline-width: 1px;
+                        outline-style: solid;
+                        outline-color: var(--orange_2);
+                    }
+
+                    &::placeholder {
+                        font-size: 1.3rem;
+                    }
+                }
+            }
+        }
+
+        .BTN_Container {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+    }
+}

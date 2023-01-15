@@ -1,0 +1,239 @@
+.Login {
+    &_Grid {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        min-height: 100vh;
+
+        // Make Max width is 1920
+        @media only screen and (min-width: 1920px) {
+            max-width: 1920px;
+            margin: auto;
+        }
+
+        // Make Max Height is 1080px
+        @media only screen and (min-height: 1080px) {
+            max-height: 1080px;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        @media only screen and (min-width: 851px) and (max-width: 1100px) {
+            grid-template-columns: 40% 60%;
+        }
+
+        @media only screen and (max-width: 850px) {
+            grid-template-columns: 100%;
+            grid-template-rows: 35rem minmax(35rem, 1fr);
+        }
+    }
+
+    .Left {
+        position: relative;
+        grid-column: 1 / 2;
+        background-image: linear-gradient(90deg, #d96e3075, #d95a2b75),
+            url("/Images/Login_bg.webp");
+
+        .LogoContainer {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 1rem;
+            background-color: var(--white);
+            width: 8rem;
+            height: 24rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: var(--radius_10);
+        }
+
+        .Logo {
+            font-size: 2.5rem;
+            font-weight: 400;
+            font-family: var(--Motserrat);
+            transform: rotate(90deg);
+
+            color: var(--orange_1);
+            span {
+                color: var(--green_1);
+            }
+        }
+
+        .Developer {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            padding: 1rem 2rem;
+            background-color: var(--white);
+            border-radius: var(--radius_5);
+
+            span {
+                color: var(--green_1);
+            }
+
+            @media (max-width: 600px) {
+                left: 2.5rem;
+                right: 2.5rem;
+                text-align: center;
+            }
+            @media (max-width: 450px) {
+                left: 1rem;
+                right: 1rem;
+            }
+        }
+
+        @media only screen and (max-width: 850px) {
+            grid-row: 2 / 3;
+            z-index: 2;
+            clip-path: polygon(0% 100%, 100% 100%, 100% 10%, 0 0);
+            margin-top: -5rem;
+
+            .LogoContainer {
+                transform: translateY(-40rem);
+                width: 24rem;
+                height: 8rem;
+                display: none;
+            }
+        }
+    }
+
+    .Right {
+        position: relative;
+        grid-column: 2 / 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 15rem;
+        background-color: var(--gray_light_1);
+
+        .LogoContainer {
+            position: absolute;
+            padding: 1rem;
+            top: 1rem;
+            left: 1rem;
+            width: 17.8rem;
+            height: 6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: var(--radius_10);
+
+            @media (min-width: 851px) {
+                display: none;
+            }
+        }
+
+        .Logo {
+            font-size: 2.5rem;
+            font-weight: 400;
+            font-family: var(--Motserrat);
+
+            color: var(--orange_1);
+            span{
+                color: var(--green_1);
+            }
+        }
+
+        @media only screen and (max-width: 1500px) {
+            padding: 0 7.5rem;
+        }
+
+        @media only screen and (max-width: 850px) {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            background-color: var(--white);
+        }
+
+        @media only screen and (max-width: 600px) {
+            padding: 0 2.5rem;
+        }
+
+        @media only screen and (max-width: 450px) {
+            padding: 0 1rem;
+        }
+
+        .Form_Container {
+            box-shadow: 0 0 0.6rem var(--shadow_16);
+            border-radius: var(--radius_10);
+            width: 100%;
+            position: relative;
+            background-color: var(--white);
+            z-index: 3;
+
+            @media only screen and (max-width: 850px) {
+                transform: translateY(50%);
+                box-shadow: 0 0 0.4rem var(--shadow_16);
+            }
+
+            form {
+                padding: 5rem 5rem;
+                @media only screen and (max-width: 450px) {
+                    padding: 3rem;
+                }
+
+                h1 {
+                    display: flex;
+                    align-items: center;
+                    font-family: var(--Montserrat);
+                    font-size: 4rem;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    color: var(--orange_1);
+                    margin-bottom: 3.5rem;
+
+                    span {
+                        margin-left: 1rem;
+                    }
+
+                    @media only screen and (max-width: 600px) {
+                        font-size: 3rem;
+                    }
+                }
+            }
+
+            .Input_Container {
+                margin-bottom: 2rem;
+
+                .TextContainer {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    color: var(--gray_dark_2);
+                    margin-left: 0.5rem;
+                    margin-bottom: 1rem;
+                    font-size: 1.4rem;
+                }
+
+                .Input {
+                    width: 100%;
+                    padding: 1.4rem 2rem;
+                    border: 0;
+                    font-family: var(--Roboto);
+                    font-size: 1.3rem;
+                    color: var(--gray_dark_1);
+                    caret-color: var(--orange_1);
+                    border-radius: var(--radius_5);
+                    box-shadow: inset 0 0 0.6rem var(--shadow_16);
+
+                    &:focus {
+                        outline-width: 1px;
+                        outline-style: solid;
+                        outline-color: var(--orange_2);
+                    }
+
+                    &::placeholder {
+                        font-size: 1.3rem;
+                    }
+                }
+            }
+            .BTN_Container {
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 3rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+}
