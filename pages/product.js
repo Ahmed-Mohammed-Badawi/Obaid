@@ -103,7 +103,7 @@ function Product() {
                     </section>
                     <section className={classes.Data}>
                         <div className={classes.Btn_Container}>
-                            <button>
+                            <button onClick={() => router.push('/')}>
                                 <Image
                                     src={"/Icons/Scanner_Black.svg"}
                                     alt='icon'
@@ -187,10 +187,6 @@ function Product() {
                             </h1>
                             <div className={classes.Description}>
                                 <p className={classes.Description_content}>
-                                    بيتزا بالفراخ من ماك تحتوي على الزيتون
-                                    والجبن بنوعيه شيدر وموتزاريلا
-                                    بيتزا بالفراخ من ماك تحتوي على الزيتون
-                                    والجبن بنوعيه شيدر وموتزاريلا
                                     بيتزا بالفراخ من ماك تحتوي على الزيتون
                                     والجبن بنوعيه شيدر وموتزاريلا
                                 </p>
