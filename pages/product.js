@@ -89,72 +89,113 @@ function Product() {
             </Head>
             <div className={classes.Product}>
                 <div className={classes.Content}>
-                    <section className={classes.Section_1}>
-                        <Image
-                            src={"/test_2.jpg"}
-                            width={600}
-                            height={400}
-                            layout='responsive'
-                            objectFit='cover'
-                            quality={100}
-                            alt='Home'
-                        />
-                        <div className={classes.Bottom}>
-                            <button
-                                className={classes.Scan}
-                                onClick={() => {
-                                    router.push("/");
-                                }}
-                            >
+                    <section className={classes.Image}>
+                        <div className={classes.Image_Container}>
+                            <Image
+                                src={"/test_2.jpg"}
+                                alt='Image'
+                                width={678}
+                                height={400}
+                                objectFit='cover'
+                                objectPosition={"center"}
+                            />
+                        </div>
+                    </section>
+                    <section className={classes.Data}>
+                        <div className={classes.Btn_Container}>
+                            <button>
                                 <Image
                                     src={"/Icons/Scanner_Black.svg"}
+                                    alt='icon'
                                     width={30}
                                     height={30}
-                                    alt={"Scan Icon"}
                                 />
                             </button>
                         </div>
-                    </section>
-                    <section className={classes.Section_2}>
-                        <article
-                            className={[classes.Admin_Item, classes.Rtl].join(
-                                " "
-                            )}
-                        >
-                            <h2>اسم المنتج</h2>
-                            <p>{data && data[0]}</p>
-                        </article>
-                        <article className={classes.Admin_Item}>
-                            <h2>Product Name</h2>
-                            <p>The Name of the product in English</p>
-                        </article>
-                        <article
-                            className={[classes.Admin_Item, classes.Rtl].join(
-                                " "
-                            )}
-                        >
-                            <h2>الوصف</h2>
-                            <p>{data && data[0]}</p>
-                        </article>
-                        <article className={classes.Admin_Item}>
-                            <h2>Description</h2>
-                            <p>
-                                This is a description about the product above
-                                you can know all what you need 
-                            </p>
-                        </article>
-                        <article
-                            className={[classes.Admin_Item, classes.Rtl].join(
-                                " "
-                            )}
-                        >
-                            <h2>السعر</h2>
-                            <p>{data && data[1]}</p>
-                        </article>
-                        <article className={classes.Admin_Item}>
-                            <h2>Price</h2>
-                            <p>{data && data[1]}</p>
-                        </article>
+                        <div className={classes.Info}>
+                            <h1 className={classes.Title}>
+                                <span className={classes.Span_EN}>
+                                    Item Name
+                                </span>{" "}
+                                <span className={classes.Span_Image}>
+                                    <Image
+                                        src={"/Icons/two_arrows.svg"}
+                                        alt='icon'
+                                        width={30}
+                                        height={30}
+                                    />
+                                </span>{" "}
+                                <span className={classes.Span_AR}>
+                                    اسم المنتج
+                                </span>
+                            </h1>
+                            <div className={classes.Description}>
+                                <p>
+                                    بيتزا بالفراخ{" "}
+                                    <Image
+                                        src={"/Icons/Done.svg"}
+                                        width={24}
+                                        height={24}
+                                        alt='done'
+                                    />
+                                </p>
+                            </div>
+                        </div>
+                        <div className={classes.Info}>
+                            <h1 className={classes.Title}>
+                                <span className={classes.Span_EN}>
+                                    Item Price
+                                </span>{" "}
+                                <span className={classes.Span_Image}>
+                                    <Image
+                                        src={"/Icons/two_arrows.svg"}
+                                        alt='icon'
+                                        width={30}
+                                        height={30}
+                                    />
+                                </span>{" "}
+                                <span className={classes.Span_AR}>
+                                    سعر المنتج
+                                </span>
+                            </h1>
+                            <div className={classes.Description}>
+                                <p>
+                                    25{" "}
+                                    <Image
+                                        src={"/Icons/Done.svg"}
+                                        width={24}
+                                        height={24}
+                                        alt='done'
+                                    />
+                                </p>
+                            </div>
+                        </div>
+                        <div className={classes.Info}>
+                            <h1 className={classes.Title}>
+                                <span className={classes.Span_EN}>
+                                    Description
+                                </span>{" "}
+                                <span className={classes.Span_Image}>
+                                    <Image
+                                        src={"/Icons/two_arrows.svg"}
+                                        alt='icon'
+                                        width={30}
+                                        height={30}
+                                    />
+                                </span>{" "}
+                                <span className={classes.Span_AR}>الوصف</span>
+                            </h1>
+                            <div className={classes.Description}>
+                                <p className={classes.Description_content}>
+                                    بيتزا بالفراخ من ماك تحتوي على الزيتون
+                                    والجبن بنوعيه شيدر وموتزاريلا
+                                    بيتزا بالفراخ من ماك تحتوي على الزيتون
+                                    والجبن بنوعيه شيدر وموتزاريلا
+                                    بيتزا بالفراخ من ماك تحتوي على الزيتون
+                                    والجبن بنوعيه شيدر وموتزاريلا
+                                </p>
+                            </div>
+                        </div>
                     </section>
                 </div>
             </div>

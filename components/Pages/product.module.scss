@@ -1,173 +1,150 @@
 .Product {
+    width: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5rem 3rem;
-    background-image: url("/Images//Home_BG_Smaller.svg");
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: cover;
-    min-height: 100vh;
+    background-color: #fefefe;
+}
 
-    @media only screen and (max-width: 767px) {
-        padding: 5rem 1rem;
+.Content {
+    display: grid;
+    grid-template-rows: repeat(13, 1fr);
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    min-height: 100vh;
+    margin: 0 auto;
+    box-shadow: 0 0 .2rem rgba( 0, 0, 0, 0.16);
+
+    .Image {
+        grid-column: 1 / -1;
+        grid-row: 1 / 7;
+        order: 0;
+
+        &_Container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-bottom-left-radius: 5rem;
+            border-bottom-right-radius: 5rem;
+            overflow: hidden;
+            span {
+                width: 100 !important;
+                height: 100% !important;
+
+                image {
+                    width: 100% !important;
+                    height: 100% !important;
+                }
+            }
+        }
     }
 
-    .Content {
-        width: 100%;
-        max-width: 600px;
+    .Data {
+        font-family: var(--Almarai);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        grid-column: 1 / -1;
+        grid-row: 6 / -1;
+        background-color: #fff;
+        padding: 1rem 1rem;
+        order: 1;
+        border-top-right-radius: 5rem;
+        border-top-left-radius: 5rem;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.16);
 
-        .Section_1 {
-            position: relative;
-            padding: 1rem;
-            background-color: var(--white);
-            border-radius: var(--radius_10);
-            box-shadow: 0 0 0.5rem var(--shadow_16);
-            margin-bottom: 1.5rem;
-            max-height: 400px;
-
-            .Bottom {
-                position: absolute;
-                bottom: 0;
-                right: 1rem;
-                transform: translateY(50%);
-                display: flex;
-                gap: 1rem;
-
-                button {
-                    width: 8rem;
-                    height: 8rem;
-                    border-radius: 50%;
-                    background-color: var(--white);
-                    border: 0;
-                    box-shadow: 0 0 0.4rem var(--shadow_16);
-                    transition: transform 0.15s ease-in-out;
-                    cursor: pointer;
-
-                    &:hover {
-                        transform: rotate(30deg);
-                    }
-
-                    &:active {
-                        box-shadow: inset 0 0 0.4rem var(--shadow_16);
-                    }
-                }
-
-                .Scan {
-                    background-image: radial-gradient(#d96e30, transparent);
-                }
-
-                @media only screen and (max-width: 767px) {
-                    button {
-                        width: 7rem;
-                        height: 7rem;
-                    }
-                }
-            }
-        }
-
-        .Section_2 {
-            display: flex;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            padding: 5rem 1rem 3rem 1rem;
-            background-color: var(--white);
-            border-radius: var(--radius_10);
-            box-shadow: 0 0 0.5rem var(--shadow_16);
-            margin-bottom: 1rem;
-
-            .Admin_Item {
-                width: 100%;
-                margin-bottom: 1.5rem;
-                background-color: #eeeeee75;
-                padding: 1.3rem;
-                border-radius: var(--radius_10);
-
-                h2 {
-                    font-size: 1.8rem;
-                    font-weight: 400;
-                    color: var(--orange_1);
-                    margin-bottom: 0.7rem;
-                }
-
-                p {
-                    font-size: 1.6rem;
-                    color: var(--gray_dark_3);
-                }
-            }
-
-            & > .Rtl {
-                direction: rtl;
-                text-align: right;
-                font-family: var(--Almarai);
-                background-color: #e9ab8724;
-                padding: 1.3rem;
-
-                p{
-                    line-height: 1.2rem;
-                }
-            }
-        }
-
-        .Section_3 {
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 2%;
-            padding: 3rem;
-            background-color: var(--white);
-            border-radius: var(--radius_10);
-            box-shadow: 0 0 0.5rem var(--shadow_16);
-
-            .User_Item {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                margin-bottom: 1.5rem;
-
-                @media only screen and (max-width: 767px) {
-                    width: 100%;
-                }
-
-                label {
-                    margin-left: 0.5rem;
-                    font-size: 1.6rem;
-                    font-weight: 400;
-                    color: var(--orange_1);
-                    margin-bottom: 0.7rem;
-                }
-
-                input {
-                    width: 100%;
-                    padding: 1.4rem 2rem;
-                    border: 0;
-                    font-family: var(--Roboto);
-                    font-size: 1.3rem;
-                    color: var(--gray_dark_1);
-                    caret-color: var(--orange_1);
-                    border-radius: var(--radius_5);
-                    box-shadow: inset 0 0 0.6rem var(--shadow_16);
-
-                    &:focus {
-                        outline-width: 1px;
-                        outline-style: solid;
-                        outline-color: var(--orange_2);
-                    }
-
-                    &::placeholder {
-                        font-size: 1.3rem;
-                    }
-                }
-            }
-        }
-
-        .BTN_Container {
+        .Btn_Container {
             display: flex;
             justify-content: flex-end;
-            width: 100%;
-            margin-top: 2rem;
-            gap: 1rem;
+            margin-bottom: 1rem;
+
+            button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 6rem;
+                height: 6rem;
+                border-radius: 5rem;
+                cursor: pointer;
+                border: none;
+                background-color: #dbdbdb;
+                box-shadow: 0 0 2px rgba(0, 0, 0, 0.16);
+
+                &:hover {
+                    background-color: #e6e6e6;
+                    box-shadow: 0 0 2px rgba(0, 0, 0, 0.16);
+                    transition: all 0.2s ease-in-out;
+                }
+
+                &:active {
+                    background-color: #e6e6e6;
+                    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.16);
+                    transition: all 0.2s ease-in-out;
+                }
+            }
+        }
+
+        .Info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2.5rem;
+
+            .Title {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 2rem;
+
+                & > span {
+                    font-size: 1.6rem;
+                    font-weight: bold;
+                    color: #333;
+                    text-transform: capitalize;
+                    letter-spacing: 1px;
+                    text-align: center;
+                    line-height: 1.5rem;
+                }
+
+                .Span_EN,
+                .Span_AR {
+                    width: calc((100% - 8rem) / 2);
+                }
+
+                .Span_Image {
+                    position: relative;
+                    display: block;
+                    width: 4rem;
+                    height: 4rem;
+                    padding: 1rem;
+                    background-color: #ffffff;
+                    border-radius: 50%;
+                    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
+                }
+            }
+
+            .Description {
+                color: var(--orange_1);
+
+                p {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    gap: 1rem;
+                    font-size: 1.6rem;
+                }
+
+                &_content {
+                    line-height: 1.6;
+                    padding: 1rem 2rem;
+                    font-size: 1.4rem;
+                    // max-height: 8rem;
+                    // overflow-y: scroll;
+                }
+            }
         }
     }
 }
